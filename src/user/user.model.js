@@ -42,6 +42,10 @@ const UserSchema = Schema({
     cursos: {
         type: String,
         required: true
+    },
+    state: {
+        type: Boolean,
+        default: true
     }
 },
     {

@@ -1,4 +1,4 @@
-import moongose from 'moongose';
+import moongose from 'mongoose';
 
 const RoleSchema = moongose.Schema({
     role: {
