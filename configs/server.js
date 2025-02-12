@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
-import authUsers from '../src/user/user.routes.js'
+import authRoutes from '../src/auth/auth.routes.js'
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -18,7 +18,7 @@ const middlewares = (app) => {
 }
 
 const routes = (app) => {
-    app.use('/academicmanager/v1/users', authUsers)
+    app.use('/academicmanager/v1/auth', authRoutes)
 }
 
 const conectarDB = async() => {

@@ -39,10 +39,11 @@ const UserSchema = Schema({
         required: true,
         enum: ['STUDENT_ROLE', 'TEACHER_ROLE']
     },
-    cursos: {
-        type: String,
+    cursos: [{
+        type: Schema.Types.ObjectId,
+        ref: 'curso',
         required: true
-    },
+    }],
     state: {
         type: Boolean,
         default: true
