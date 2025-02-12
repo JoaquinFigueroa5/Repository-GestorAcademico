@@ -8,7 +8,7 @@ export const Login = async(req, res) => {
 
     try {
         
-        const user = await Usuario.findOne({
+        const user = await User.findOne({
             $or: [
                 {email}, {username}
             ]
@@ -66,7 +66,6 @@ export const Register = async(req, res) => {
             email: data.email,
             phone: data.phone,
             password: encryptedPassword,
-            role: data.role,
             cursos: data.cursos
             
         })

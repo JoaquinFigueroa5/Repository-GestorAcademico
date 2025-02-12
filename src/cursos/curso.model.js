@@ -18,4 +18,4 @@ const CursoSchema = Schema({
     versionKey: false
 });
 
-export default model('curso', CursoSchema)
+export default model('Curso', CursoSchema)

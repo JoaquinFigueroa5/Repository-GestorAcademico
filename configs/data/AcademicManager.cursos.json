@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "67ad134766975d44e3c524ff"
+  },
+  "title": "Programacion",
+  "descripcion": "Curso de programacion",
+  "createdAt": {
+    "$date": "2025-02-12T21:31:51.750Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T21:31:51.750Z"
+  }
+}]

@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "67ad119bb627178531265626"
+  },
+  "name": "Carlos",
+  "surname": "Cortez",
+  "username": "Papacortez",
+  "email": "ccortez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$PWpsH2JtTzXn6A9kElJyWg$/CH1Ae74Md2IN90VZgnsIsUiim9G4rKvSwWNyQQKSfk",
+  "phone": "58694127",
+  "role": "TEACHER_ROLE",
+  "cursos": [],
+  "state": true
+}]

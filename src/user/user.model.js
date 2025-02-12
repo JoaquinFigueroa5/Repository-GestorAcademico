@@ -37,12 +37,12 @@ const UserSchema = Schema({
     role: {
         type: String,
         required: true,
-        enum: ['STUDENT_ROLE', 'TEACHER_ROLE']
+        enum: ['STUDENT_ROLE', 'TEACHER_ROLE'],
+        default: 'STUDENT_ROLE'
     },
     cursos: [{
         type: Schema.Types.ObjectId,
-        ref: 'curso',
-        required: true
+        ref: 'curso'
     }],
     state: {
         type: Boolean,

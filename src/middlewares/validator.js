@@ -1,6 +1,6 @@
 import { body } from 'express-validator';
 import { validarCampos } from './validar-campos.js';
-import { existenteEmail, esRolValido } from '../helpers/db-validator.js';
+import { existenteEmail } from '../helpers/db-validator.js';
 
 export const registerValidator = [
     body('name', 'Name is required').not().isEmpty(),
@@ -8,7 +8,6 @@ export const registerValidator = [
     body('username', 'Username is required').not().isEmpty(),
     body('email', 'You must enter a valid email').isEmail(),
     body('email').custom(existenteEmail),
-    body('role').custom(esRolValido),
     body('password', "Password must be at least 6 chraracters").isLength({min: 6}),
     validarCampos
 ];
