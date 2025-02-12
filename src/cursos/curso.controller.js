@@ -25,28 +25,19 @@ export const saveCurso = async (req, res) =>{
     }
 }
 
-export const getCurso = async (req = request, res = response) => {
-    const { limit = 10, desde = 0 } = req.query;
-    const query = { state: true };
+export const getCurso = async (req, res) => {
     try {
-        const cursos = await Curso.find(query)
-            .skip(Number(desde))
-            .limit(Number(limit));
+        const cursos = await Curso.find();
 
-        const total = await Curso.countDocuments(query);
-
-        res.status(200).json({
-            success: true,
-            total,
-            cursos
-        })
-        
+        return res.status(200).json({
+            msg: "Cursos obtenidos con éxito",
+            cursos: cursos
+        });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            msg: 'Error al obtener cursos',
-            error
-        })
-        
+        console.log(error);
+        return res.status(500).json({
+            msg: 'Hubo un problema al obtener los cursos',
+            error: error.message || error.msg
+        });
     }
-}
+};

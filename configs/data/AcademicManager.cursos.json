@@ -10,4 +10,56 @@
   "updatedAt": {
     "$date": "2025-02-12T21:31:51.750Z"
   }
+},
+{
+  "_id": {
+    "$oid": "67ad246a3282f461564a9b1f"
+  },
+  "title": "matematica",
+  "descripcion": "Curso de matematica",
+  "createdAt": {
+    "$date": "2025-02-12T22:44:58.741Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T22:44:58.741Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad24763282f461564a9b22"
+  },
+  "title": "Ingles",
+  "descripcion": "Curso de ingles",
+  "createdAt": {
+    "$date": "2025-02-12T22:45:10.594Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T22:45:10.594Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad247f3282f461564a9b25"
+  },
+  "title": "Filosofia",
+  "descripcion": "Curso de filosofia",
+  "createdAt": {
+    "$date": "2025-02-12T22:45:19.957Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T22:45:19.957Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad248d3282f461564a9b28"
+  },
+  "title": "Psicologia",
+  "descripcion": "Curso de psicologia",
+  "createdAt": {
+    "$date": "2025-02-12T22:45:33.300Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T22:45:33.300Z"
+  }
 }]
