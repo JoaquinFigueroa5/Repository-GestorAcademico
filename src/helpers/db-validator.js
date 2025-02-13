@@ -15,7 +15,3 @@ export const existeUsuarioById = async (id = '') => {
         throw new Error(`El usuario con el id ${id} no existe en la base de datos`)
     }
 }
-
-/* export const limiteCursos = async (id = '') => {
-    const limite = await 
-} */

@@ -1,6 +1,6 @@
 import { response, request } from "express";
 import { hash } from "argon2";
-import Curso from './curso.model.js'
+import Curso from './curso.model.js';
 
 export const saveCurso = async (req, res) =>{
     try {
@@ -40,4 +40,31 @@ export const getCurso = async (req, res) => {
             error: error.message || error.msg
         });
     }
-};
+}
+
+export const getCursoById = async(req, res) => {
+    try {
+        const { id } = req.params;
+    
+        const curso = await Curso.findById(id);
+
+        if(!curso){
+            return res.status(404).json({
+                success: false,
+                msg: "Curso no encontrado"
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            curso
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error al obtener el curso',
+            error
+        })
+    }
+}
