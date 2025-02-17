@@ -5,6 +5,7 @@ export const editarStudent = async(req, res, next) => {
         
         const { id } =  req.params;
         const user = await User.findById(id);
+        const authenticatedUser = req.user.role;
 
         if(!user){
             return res.status(404).json({
@@ -13,10 +14,10 @@ export const editarStudent = async(req, res, next) => {
             })
         }
 
-        if(user.role === "TEACHER_ROLE"){
+        if(authenticatedUser === "STUDENT_ROLE"){
             return res.status(400).json({
                 success: false,
-                msg: "No puede eliminar este usuario"
+                msg: "No puede modificar este usuario"
             })
         }
 

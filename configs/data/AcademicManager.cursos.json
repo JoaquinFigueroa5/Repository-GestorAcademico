@@ -1,65 +1,56 @@
 [{
   "_id": {
-    "$oid": "67ad134766975d44e3c524ff"
+    "$oid": "67b2c93cfe2570ab2589b3eb"
   },
-  "title": "Programacion",
-  "descripcion": "Curso de programacion",
+  "title": "Introduccion al derecho",
+  "descripcion": "Curso de introduccion al derecho",
+  "student": [
+    {
+      "$oid": "67adec0cc0b6f9bf2d4d2902"
+    },
+    {
+      "$oid": "67b2879f32dfcdce6d22e90e"
+    },
+    {
+      "$oid": "67adec0cc0b6f9bf2d4d2902"
+    }
+  ],
+  "state": true,
   "createdAt": {
-    "$date": "2025-02-12T21:31:51.750Z"
+    "$date": "2025-02-17T05:29:32.844Z"
   },
   "updatedAt": {
-    "$date": "2025-02-12T21:31:51.750Z"
+    "$date": "2025-02-17T13:45:13.960Z"
   }
 },
 {
   "_id": {
-    "$oid": "67ad246a3282f461564a9b1f"
+    "$oid": "67b33a5ad30aed51b28a8159"
   },
-  "title": "matematica",
-  "descripcion": "Curso de matematica",
+  "title": "Introduccion a mercadotecnia",
+  "descripcion": "Curso de introduccion a mercadotecnia",
+  "student": [
+    {
+      "$oid": "67aedf5888fca9ffbc76ea9f"
+    },
+    {
+      "$oid": "67ad83f7ea412e99d5908a4a"
+    },
+    {
+      "$oid": "67b2879f32dfcdce6d22e90e"
+    },
+    {
+      "$oid": "67adec0cc0b6f9bf2d4d2902"
+    },
+    {
+      "$oid": "67adec0cc0b6f9bf2d4d2902"
+    }
+  ],
+  "state": true,
   "createdAt": {
-    "$date": "2025-02-12T22:44:58.741Z"
+    "$date": "2025-02-17T13:32:10.022Z"
   },
   "updatedAt": {
-    "$date": "2025-02-12T22:44:58.741Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67ad24763282f461564a9b22"
-  },
-  "title": "Ingles",
-  "descripcion": "Curso de ingles",
-  "createdAt": {
-    "$date": "2025-02-12T22:45:10.594Z"
-  },
-  "updatedAt": {
-    "$date": "2025-02-12T22:45:10.594Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67ad247f3282f461564a9b25"
-  },
-  "title": "Filosofia",
-  "descripcion": "Curso de filosofia",
-  "createdAt": {
-    "$date": "2025-02-12T22:45:19.957Z"
-  },
-  "updatedAt": {
-    "$date": "2025-02-12T22:45:19.957Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67ad248d3282f461564a9b28"
-  },
-  "title": "Psicologia",
-  "descripcion": "Curso de psicologia",
-  "createdAt": {
-    "$date": "2025-02-12T22:45:33.300Z"
-  },
-  "updatedAt": {
-    "$date": "2025-02-12T22:45:33.300Z"
+    "$date": "2025-02-17T13:45:23.136Z"
   }
 }]

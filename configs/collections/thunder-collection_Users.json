@@ -1,0 +1,94 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Users",
+    "collectionId": "e883dce0-734c-469d-b06a-02166bc4148a",
+    "dateExported": "2025-02-17T13:48:13.005Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7e68b6bf-96b9-435a-9b92-a2d37164c5f3",
+            "colId": "e883dce0-734c-469d-b06a-02166bc4148a",
+            "containerId": "",
+            "name": "registrarCursos",
+            "url": "http://localhost:3005/academicmanager/v1/users/registrarCursos/67adec0cc0b6f9bf2d4d2902",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2025-02-13T05:32:53.550Z",
+            "modified": "2025-02-17T13:45:23.152Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyODdkNjMyZGZjZGNlNmQyMmU5MTEiLCJpYXQiOjE3Mzk3OTg0MTYsImV4cCI6MTczOTgwMjAxNn0.Z_FWwYL9vQ2uiDsIrHoXK-U55_XFRc_y2-YWcoDNc_o"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Introduccion a mercadotecnia\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "bfa071e6-7c74-461c-9cb4-7cd765789057",
+            "colId": "e883dce0-734c-469d-b06a-02166bc4148a",
+            "containerId": "",
+            "name": "getUsers",
+            "url": "http://localhost:3005/academicmanager/v1/users/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-02-13T06:32:05.922Z",
+            "modified": "2025-02-17T06:37:19.104Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkZWMwY2MwYjZmOWJmMmQ0ZDI5MDIiLCJpYXQiOjE3Mzk3NzM1MDcsImV4cCI6MTczOTc3NzEwN30.lfWGXshxPcEDZNvTe343SXH3JZvUvaYNxTOEsq5Lk6o"
+                }
+            ]
+        },
+        {
+            "_id": "fac7409f-c2d0-47ce-8f55-a0d7b7a9ef94",
+            "colId": "e883dce0-734c-469d-b06a-02166bc4148a",
+            "containerId": "",
+            "name": "eliminarUser",
+            "url": "http://localhost:3005/academicmanager/v1/users/67adec0cc0b6f9bf2d4d2902",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2025-02-14T06:12:41.310Z",
+            "modified": "2025-02-17T05:30:13.022Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkZWMwY2MwYjZmOWJmMmQ0ZDI5MDIiLCJpYXQiOjE3Mzk1ODQwNjMsImV4cCI6MTczOTU4NzY2M30.mSgUTaRIMvJ60w4HDYRxWpitoi8E4MSq5YZMdOjFvFw"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"state\": true\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "301583f4-7e20-4c2c-8b02-edb9e687ed68",
+            "colId": "e883dce0-734c-469d-b06a-02166bc4148a",
+            "containerId": "",
+            "name": "updateRoleUsuario",
+            "url": "http://localhost:3005/academicmanager/v1/users/67ad83f7ea412e99d5908a4a",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2025-02-17T13:24:40.058Z",
+            "modified": "2025-02-17T13:28:03.745Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyODdkNjMyZGZjZGNlNmQyMmU5MTEiLCJpYXQiOjE3Mzk3OTg4NzMsImV4cCI6MTczOTgwMjQ3M30.rsnOCgpukBamIslNuB5pukqveKQOOqRddir2rFZVzQ0"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role\": \"STUDENT_ROLE\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Zq0g1gSa6Dwbs9KPuUtZnaQVuN62LKETQ6WqNBVK0vT5XqxILaLS7mKNQfVdh2HwIiC0qxO5w0cxpNXuIY8RSA"
+}

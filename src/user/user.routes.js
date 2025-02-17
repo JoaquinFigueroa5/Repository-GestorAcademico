@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUsers, cursosStudents, searchUser, deleteUsuario} from './user.controller.js';
+import { getUsers, cursosStudents, searchUser, deleteUsuario, updateUsuario} from './user.controller.js';
 import { registerValidator, loginValidator } from '../middlewares/validator.js';
 import { deleteFileOnError } from '../middlewares/deleteFileOnError.js';
 import { validarJWT } from '../middlewares/validar-jwt.js';
@@ -50,7 +50,7 @@ router.put(
         editarStudent,
         validarCampos
     ],
-    
+    updateUsuario
 )
 
 export default router;

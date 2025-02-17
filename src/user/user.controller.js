@@ -7,14 +7,12 @@ export const getUsers = async (req, res) => {
     const query = { state: true };
 
     try {
-        // Obtener usuarios
         const users = await User.find(query)
             .skip(Number(desde))
             .limit(Number(limite));
 
-        // Obtener los cursos en los que están inscritos los usuarios
         const usersWithCourses = await Promise.all(users.map(async (user) => {
-            const cursos = await Curso.find({ student: user._id }, "title"); // Buscar cursos donde el usuario sea estudiante
+            const cursos = await Curso.find({ student: user._id }, "title");
 
             return {
                 ...user.toObject(),
@@ -44,6 +42,7 @@ export const cursosStudents = async (req, res) => {
     try {
         const { id } = req.params;
         const { title } = req.body;
+        const authenticatedUser = req.user.role;
 
         const user = await User.findById(id);
         if (!user) {
@@ -53,14 +52,13 @@ export const cursosStudents = async (req, res) => {
             });
         }
 
-        if (user.role !== 'STUDENT_ROLE') {
+        if (authenticatedUser === 'STUDENT_ROLE') {
             return res.status(403).json({
                 success: false,
                 msg: "El usuario no tiene permiso para inscribirse a cursos"
             });
         }
 
-        // Buscar el curso por el título
         const curso = await Curso.findOne({ title });
         if (!curso) {
             return res.status(404).json({
@@ -76,8 +74,13 @@ export const cursosStudents = async (req, res) => {
             });
         }
 
+        curso.student.push(user._id);
+        await curso.save();
+
         user.cursos.push(curso._id);
         await user.save();
+
+        
 
         const userWithCourses = await User.findById(id).populate({
             path: 'cursos',

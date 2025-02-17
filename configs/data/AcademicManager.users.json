@@ -9,6 +9,105 @@
   "password": "$argon2id$v=19$m=65536,t=3,p=4$PWpsH2JtTzXn6A9kElJyWg$/CH1Ae74Md2IN90VZgnsIsUiim9G4rKvSwWNyQQKSfk",
   "phone": "58694127",
   "role": "TEACHER_ROLE",
+  "cursos": [
+    {
+      "$oid": "67b2c93cfe2570ab2589b3eb"
+    }
+  ],
+  "state": true
+},
+{
+  "_id": {
+    "$oid": "67ad83f7ea412e99d5908a4a"
+  },
+  "name": "Joaquin",
+  "surname": "Figueroa",
+  "username": "JoakI",
+  "email": "hfigueroa-2023417@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$k52VibqMyROVW5hz7yljeA$yACMPgXrBydffcH+g5W7mda6PVdlKbNxyLyyBrFJRBI",
+  "phone": "59694127",
+  "role": "STUDENT_ROLE",
+  "cursos": [
+    {
+      "$oid": "67b2c93cfe2570ab2589b3eb"
+    }
+  ],
+  "state": true
+},
+{
+  "_id": {
+    "$oid": "67adec0cc0b6f9bf2d4d2902"
+  },
+  "name": "Alejandra",
+  "surname": "Ojeda",
+  "username": "waexoex",
+  "email": "aojeda@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$ihePmqYPD3dcb2gF7A2kHA$S/qL8mQYQetWhAFHJr4VzSwJBYjNLJMtLInbscKfYw8",
+  "phone": "58771857",
+  "role": "STUDENT_ROLE",
+  "cursos": [
+    {
+      "$oid": "67b2c93cfe2570ab2589b3eb"
+    },
+    {
+      "$oid": "67b33a5ad30aed51b28a8159"
+    }
+  ],
+  "state": true
+},
+{
+  "_id": {
+    "$oid": "67aedf5888fca9ffbc76ea9f"
+  },
+  "name": "Alejandro",
+  "surname": "Quinonez",
+  "username": "Cuco",
+  "email": "aquinonez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$haaLXfmhEYiNgi1Wp/lYyw$5f1uHEag8NbTvps+l5B7y5CLOMzo2EL2dd97+7zw5mk",
+  "phone": "58771857",
+  "role": "STUDENT_ROLE",
+  "cursos": [
+    {
+      "$oid": "67b2c93cfe2570ab2589b3eb"
+    },
+    {
+      "$oid": "67b33a5ad30aed51b28a8159"
+    }
+  ],
+  "state": true
+},
+{
+  "_id": {
+    "$oid": "67b2879f32dfcdce6d22e90e"
+  },
+  "name": "Saul",
+  "surname": "De Leon",
+  "username": "gokusaul",
+  "email": "sdeleon@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$+7wYqFuRlvzcoRuDdGkjfQ$oNYwhlU09jXpwsba6HTgUKTjuCHRNlE4Qh0MRW6uFIE",
+  "phone": "58771857",
+  "role": "STUDENT_ROLE",
+  "cursos": [
+    {
+      "$oid": "67b2c93cfe2570ab2589b3eb"
+    },
+    {
+      "$oid": "67b33a5ad30aed51b28a8159"
+    }
+  ],
+  "state": true
+},
+{
+  "_id": {
+    "$oid": "67b287d632dfcdce6d22e911"
+  },
+  "name": "Alexander",
+  "surname": "Mayen",
+  "username": "papamayern",
+  "email": "amayen@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$8hP8TdVz5/Kze+fPTwEY9Q$3GoGornU0cq2zvhLJy0cZsNpJXLmaTd7DMXk3c9ZC74",
+  "phone": "58771857",
+  "role": "TEACHER_ROLE",
   "cursos": [],
   "state": true
 }]

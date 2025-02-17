@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Auth",
+    "collectionId": "82acd81b-5806-4056-82b4-b9fba453ccc7",
+    "dateExported": "2025-02-17T13:47:16.431Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "561c12ab-d04c-497c-b12d-93548e41fd4e",
+            "colId": "82acd81b-5806-4056-82b4-b9fba453ccc7",
+            "containerId": "",
+            "name": "register",
+            "url": "http://localhost:3005/academicmanager/v1/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-13T04:23:06.014Z",
+            "modified": "2025-02-17T00:50:30.358Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Alexander\",\n  \"surname\": \"Mayen\",\n  \"username\": \"papamayern\",\n  \"email\": \"amayen@gmail.com\",\n  \"password\": \"Alexander2007\",\n  \"phone\": \"58771857\",\n  \"role\": \"TEACHER_ROLE\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1aed1ef6-1fd5-4326-a72f-24b53f38aba6",
+            "colId": "82acd81b-5806-4056-82b4-b9fba453ccc7",
+            "containerId": "",
+            "name": "login",
+            "url": "http://localhost:3005/academicmanager/v1/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-13T04:23:11.349Z",
+            "modified": "2025-02-17T13:27:53.737Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"amayen@gmail.com\",\n  \"password\": \"Alexander2007\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "YWP15HCUl2rTsG2Gephp2jakxJFfthg-pmR3sG0L1DX-RQbKK7ER6hPz2V4V4rLjyvpYECQ6fU8Rk5m328FKAg"
+}

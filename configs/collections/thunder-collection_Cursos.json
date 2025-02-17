@@ -1,0 +1,84 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Cursos",
+    "collectionId": "00be9b9f-a877-433a-81dd-9bb04fde5c99",
+    "dateExported": "2025-02-17T13:48:02.219Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c13f77f5-a8c0-413a-9c2b-5feed2395ddf",
+            "colId": "00be9b9f-a877-433a-81dd-9bb04fde5c99",
+            "containerId": "",
+            "name": "get",
+            "url": "http://localhost:3005/academicmanager/v1/cursos",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-02-13T05:27:01.587Z",
+            "modified": "2025-02-13T06:31:41.015Z",
+            "headers": []
+        },
+        {
+            "_id": "d325438d-2339-4001-81e3-9f44e12bee95",
+            "colId": "00be9b9f-a877-433a-81dd-9bb04fde5c99",
+            "containerId": "",
+            "name": "registerCurso",
+            "url": "http://localhost:3005/academicmanager/v1/cursos/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-15T02:23:03.044Z",
+            "modified": "2025-02-17T13:32:10.070Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyODdkNjMyZGZjZGNlNmQyMmU5MTEiLCJpYXQiOjE3Mzk3OTkxMjMsImV4cCI6MTczOTgwMjcyM30.QNl-qjMi-IcoJSkBum0HjxQInkr_NaYaxU6iigydgfw"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Introduccion a mercadotecnia\",\n  \"descripcion\": \"Curso de introduccion a mercadotecnia\",\n  \"student\": [\"hfigueroa-2023417@gmail.com\", \"aquinonez@gmail.com\"]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4e585054-932e-4736-97cd-edf3d1d483e6",
+            "colId": "00be9b9f-a877-433a-81dd-9bb04fde5c99",
+            "containerId": "",
+            "name": "updateCurso",
+            "url": "http://localhost:3005/academicmanager/v1/cursos/67b2c8c6fe2570ab2589b3e2",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-02-16T17:21:10.255Z",
+            "modified": "2025-02-17T07:01:13.239Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyODdkNjMyZGZjZGNlNmQyMmU5MTEiLCJpYXQiOjE3Mzk3NzQ1NTcsImV4cCI6MTczOTc3ODE1N30._FYXDNBjxwNztfUIp7cmfCBzuhlfPkySQhbxwCsbynI"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Tecnologia del internet\",\n  \"descripcion\": \"TIC'S\",\n  \"student\": [\"aojeda@gmail.com\", \"hfigueroa-2023417@gmail.com\"]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "faa109ed-2358-4227-8fe6-1367af60ed50",
+            "colId": "00be9b9f-a877-433a-81dd-9bb04fde5c99",
+            "containerId": "",
+            "name": "deleteCurso",
+            "url": "http://localhost:3005/academicmanager/v1/cursos/67b2c8c6fe2570ab2589b3e2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2025-02-17T05:25:52.770Z",
+            "modified": "2025-02-17T07:02:15.575Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyODdkNjMyZGZjZGNlNmQyMmU5MTEiLCJpYXQiOjE3Mzk3NzU3MjMsImV4cCI6MTczOTc3OTMyM30.Jqu16_xkz--7sWrmQysFumExwEXaY_1TR5Aj0DY-LEI"
+                }
+            ]
+        }
+    ],
+    "ref": "xYLkLFDiGK6nIeZzrdotxDlrRKpLfwkeaCaTtBdkYSqliqirSSliYYGzLh-3aqZCTVHCpApTI5TAfvBF6ZNV7w"
+}

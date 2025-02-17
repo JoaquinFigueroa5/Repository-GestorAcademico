@@ -23,28 +23,4 @@ export const updateCursosOnlyTeacher = async(req, res, next) => {
     }
 }
 
-/* export const teacherValidator = async(req, res, next) => {
-    try {
-        const {teacher} = req.body;
-
-        if (!teacherUser) {
-            return res.status(404).json({
-                success: false,
-                msg: "El usuario no existe o no tiene rol de profesor"
-            });
-        }
-
-
-        req.body.teacher = teacherUser._id;
-
-        next();
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            msg: "Error en el profesor",
-            error: error.message
-        })
-    }
-} */
 
