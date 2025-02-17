@@ -9,19 +9,13 @@ const CursoSchema = Schema({
         type: String,
         required: true
     },
-    teacher: {
+    student: [{
         type: Schema.Types.ObjectId,
-        ref: 'user',
-        required: true
-    },
-    student: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-        required: true
-    },
+        ref: 'User',
+    }],
     state: {
         type: Boolean,
-        defalut: true
+        default: true
     }
 }, {
     timestamps: true,

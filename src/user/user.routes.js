@@ -1,11 +1,12 @@
 import { Router } from 'express';
-import { getUsers, cursosStudents, searchUser} from './user.controller.js';
+import { getUsers, cursosStudents, searchUser, deleteUsuario} from './user.controller.js';
 import { registerValidator, loginValidator } from '../middlewares/validator.js';
 import { deleteFileOnError } from '../middlewares/deleteFileOnError.js';
 import { validarJWT } from '../middlewares/validar-jwt.js';
 import { check } from 'express-validator';
 import { validarCampos } from '../middlewares/validar-campos.js';
 import { limiteCursos } from '../middlewares/validar-cursos.js';
+import { editarStudent, eliminarStudent } from '../middlewares/validar-usuarios.js';
 
 const router = Router();
 
@@ -29,6 +30,27 @@ router.get(
         validarCampos
     ],
     searchUser
+)
+
+router.delete(
+    '/:id',
+    [
+        validarJWT,
+        eliminarStudent,
+        validarCampos
+
+    ],
+    deleteUsuario
+)
+
+router.put(
+    "/:id",
+    [
+        validarJWT,
+        editarStudent,
+        validarCampos
+    ],
+    
 )
 
 export default router;

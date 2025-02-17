@@ -4,20 +4,34 @@ import Curso from "../cursos/curso.model.js"
 
 export const getUsers = async (req, res) => {
     const { limite = 10, desde = 0} = req.query;
-    const query = { state: true};
+    const query = { state: true };
 
     try {
         const users = await User.find(query)
+            .populate("cursos", "title")
             .skip(Number(desde))
             .limit(Number(limite));
             
-        const userWithCourseNames = await Promise.all(users.map(async (user) => {
-            const cursos = await Curso.find({ _id: { $in: user.cursos } }, 'title');
-            return {
-                ...user.toObject(),
-                cursos: cursos.length > 0 ? cursos.map(curso => curso.title) : ["Sin cursos asignados"]
-            }
-        }))
+            const userWithCourseNames = await Promise.all(users.map(async (user) => {
+                console.log(`Usuario: ${user.name} - Cursos asignados:`, user.cursos);
+            
+                if (!user.cursos || user.cursos.length === 0) {
+                    return { ...user.toObject(), cursos: ["Sin cursos asignados"] };
+                }
+            
+                const cursos = await Curso.find({ 
+                    _id: { $in: user.cursos.map(id => new Schema.Types.ObjectId(id)) }
+                }, 'title');
+            
+                console.log("Cursos encontrados:", cursos);
+            
+                return { 
+                    ...user.toObject(),
+                    cursos: cursos.map(curso => curso.title) // Devuelve solo los títulos
+                };
+            }));
+            
+            
 
         const total = await User.countDocuments(query);        
 
@@ -37,10 +51,9 @@ export const getUsers = async (req, res) => {
 
 export const cursosStudents = async (req, res) => {
     try {
-        const { id } = req.params; // ID del usuario
-        const { title } = req.body; // Nombre del curso
+        const { id } = req.params;
+        const { title } = req.body;
 
-        // Verificar si el usuario existe
         const user = await User.findById(id);
         if (!user) {
             return res.status(404).json({
@@ -49,7 +62,6 @@ export const cursosStudents = async (req, res) => {
             });
         }
 
-        // Verificar si el usuario tiene el rol de 'STUDENT_ROLE'
         if (user.role !== 'STUDENT_ROLE') {
             return res.status(403).json({
                 success: false,
@@ -66,7 +78,6 @@ export const cursosStudents = async (req, res) => {
             });
         }
 
-        // Verificar si el usuario ya está inscrito en el curso
         if (user.cursos.includes(curso._id)) {
             return res.status(400).json({
                 success: false,
@@ -74,14 +85,12 @@ export const cursosStudents = async (req, res) => {
             });
         }
 
-        // Agregar el curso al array de cursos del usuario
         user.cursos.push(curso._id);
         await user.save();
 
-        // Poblar los cursos con sus nombres al devolver la respuesta
         const userWithCourses = await User.findById(id).populate({
             path: 'cursos',
-            select: 'title' // Solo mostrar el título del curso
+            select: 'title'
         });
 
         res.status(200).json({
@@ -112,22 +121,70 @@ export const searchUser = async(req, res) => {
             })
         }
         
-        const userWithCourses = await Curso.findById(id).populate({
-            path: 'cursos',
-            select: 'title'
-        })
+        if(!user.cursos || user.cursos.length === 0){
+            return res.status(200).json({
+                success: true,
+                user: {
+                    ...user.toObject(),
+                    cursos: []
+                }
+            })
+        }
+
+        const cursos  = await Curso.find({ _id: { $in: user.cursos }}, "title")
 
         res.status(200).json({
             success: true,
             user: {
                 ...user.toObject(),
-                cursos: userWithCourses
+                cursos
             }
         })
     } catch (error) {
         res.status(500).json({
             success: false,
             msg: 'Error al encontrar el usuario'
+        })
+    }
+}
+
+export const deleteUsuario = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const user = await User.findByIdAndUpdate(id, { state: false }, { new: true})
+
+        res.status(200).json({
+            success: true,
+            msg: "Usuario desactivado",
+            user
+        })
+    }catch(error){
+        res.status(500).json({
+            success: false,
+            msg: 'Error al desactivar usuario'
+        })
+    }
+}
+
+export const updateUsuario = async(req, res) => {
+    try {
+        
+        const { id } = req.params;
+        const { _id, ...data} = req.body;
+
+        const user = await User.findByIdAndUpdate(id, data, {new: true});
+
+        res.status(200).json({
+            success: true,
+            msg: "Usuario actualizado",
+            user
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error al editar el usuario',
+            error
         })
     }
 }

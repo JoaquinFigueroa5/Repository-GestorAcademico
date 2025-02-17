@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import {Schema, model} from "mongoose";
 
 const UserSchema = Schema({
@@ -42,7 +43,7 @@ const UserSchema = Schema({
     },
     cursos: [{
         type: Schema.Types.ObjectId,
-        ref: 'curso'
+        ref: 'Curso'
     }],
     state: {
         type: Boolean,
