@@ -3,51 +3,42 @@ import User from "./user.model.js";
 import Curso from "../cursos/curso.model.js"
 
 export const getUsers = async (req, res) => {
-    const { limite = 10, desde = 0} = req.query;
+    const { limite = 10, desde = 0 } = req.query;
     const query = { state: true };
 
     try {
+        // Obtener usuarios
         const users = await User.find(query)
-            .populate("cursos", "title")
             .skip(Number(desde))
             .limit(Number(limite));
-            
-            const userWithCourseNames = await Promise.all(users.map(async (user) => {
-                console.log(`Usuario: ${user.name} - Cursos asignados:`, user.cursos);
-            
-                if (!user.cursos || user.cursos.length === 0) {
-                    return { ...user.toObject(), cursos: ["Sin cursos asignados"] };
-                }
-            
-                const cursos = await Curso.find({ 
-                    _id: { $in: user.cursos.map(id => new Schema.Types.ObjectId(id)) }
-                }, 'title');
-            
-                console.log("Cursos encontrados:", cursos);
-            
-                return { 
-                    ...user.toObject(),
-                    cursos: cursos.map(curso => curso.title) // Devuelve solo los títulos
-                };
-            }));
-            
-            
 
-        const total = await User.countDocuments(query);        
+        // Obtener los cursos en los que están inscritos los usuarios
+        const usersWithCourses = await Promise.all(users.map(async (user) => {
+            const cursos = await Curso.find({ student: user._id }, "title"); // Buscar cursos donde el usuario sea estudiante
+
+            return {
+                ...user.toObject(),
+                cursos: cursos.length > 0 ? cursos.map(curso => curso.title) : ["Sin cursos asignados"]
+            };
+        }));
+
+        const total = await User.countDocuments(query);
 
         res.status(200).json({
-            sucess: true,
+            success: true,
             total,
-            users: userWithCourseNames
-        })
+            users: usersWithCourses
+        });
     } catch (error) {
         res.status(500).json({
-            sucess: false,
-            msg: 'Error al obtener usuarios',
+            success: false,
+            msg: "Error al obtener usuarios",
             error
-        })
+        });
     }
-}
+};
+
+
 
 export const cursosStudents = async (req, res) => {
     try {

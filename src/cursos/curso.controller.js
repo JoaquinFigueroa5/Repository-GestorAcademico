@@ -1,5 +1,6 @@
 import { response, request } from "express";
 import { hash } from "argon2";
+import mongoose from 'mongoose';
 import Curso from './curso.model.js';
 import User from "../user/user.model.js";
 
@@ -122,62 +123,84 @@ export const getCursoById = async(req, res) => {
 export const updateCurso = async(req, res) => {
     try {
         const { id } = req.params;
-        const { _id, student, ...data} = req.body;
-        const students = await User.find({ email: { $in: student } });
+        const { _id, student, ...data } = req.body;
 
-        if(!Array.isArray(student)) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({
                 success: false,
-                msg: "El campo 'student' debe ser un arreglo de correos electrónicos"
+                msg: "ID de curso no válido"
             });
         }
 
-        if (students.length !== student.length) {
+        let studentIds = [];
+
+        if (student) {
+            if (!Array.isArray(student)) {
+                return res.status(400).json({
+                    success: false,
+                    msg: "El campo 'student' debe ser un arreglo de correos electrónicos"
+                });
+            }
+
+            const students = await User.find({ email: { $in: student } });
+
+            if (students.length !== student.length) {
+                return res.status(404).json({
+                    success: false,
+                    msg: "Uno o más estudiantes no fueron encontrados"
+                });
+            }
+
+            studentIds = students.map(s => s._id);
+        }
+
+        const curso = await Curso.findByIdAndUpdate(id, data, { new: true });
+
+        if (!curso) {
             return res.status(404).json({
                 success: false,
-                msg: "Uno o más estudiantes no fueron encontrados"
+                msg: "El curso no fue encontrado"
             });
         }
 
-        const curso = await Curso.findByIdAndUpdate(id, data, {new: true});
-
-        if(student){
-            const studentIds = students.map(s => s._id);
+        if (student) {
             curso.student = studentIds;
+            await curso.save();
         }
-
-        await curso.save();
 
         const savedCurso = await Curso.findById(curso._id).populate({
             path: 'student',
             select: 'name surname'
-        })
+        });
 
         res.status(200).json({
             success: true,
             msg: "Curso actualizado",
             curso: savedCurso
-        })
+        });
 
     } catch (error) {
         res.status(500).json({
             success: false,
             msg: "Error al actualizar el curso",
-            error
-        })
+            error: error.message
+        });
     }
-}
+};
+
+
 
 export const deleteCurso = async(req, res) => {
     const { id } = req.params;
 
     try {
 
-        await Curso.findByIdAndUpdate(id, { status: false });
-
+        const curso = await Curso.findByIdAndDelete(id);
+        
         res.status(200).json({
             success: true,
-            msg: "Curso eliminado exitosamente"
+            msg: "Curso eliminado exitosamente",
+            curso
         })
 
     } catch (error) {
